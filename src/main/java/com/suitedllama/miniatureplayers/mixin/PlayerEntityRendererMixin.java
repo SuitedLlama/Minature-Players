@@ -14,7 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class PlayerEntityRendererMixin {
 	@Inject(at = @At("HEAD"), method = "scale")
 	protected void scale(AbstractClientPlayerEntity abstractClientPlayerEntity, MatrixStack matrixStack, float f, CallbackInfo ci) {
-		if(!abstractClientPlayerEntity.getDisplayName().asString().equals("SuitedLlama")){
+		String username = abstractClientPlayerEntity.getDisplayName().asString();
+		if(!(username.equals("SuitedLlama") || username.equals("hheadstall") || username.equals("Metio") || username.equals("Orionx03"))){
 			matrixStack.scale(0.4F, 0.4F, 0.4F);
 		}
 	}
